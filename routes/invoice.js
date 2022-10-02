@@ -98,8 +98,13 @@ router.put("/invoice/:invoiceId", (req, res) => {
 		clientName,
 		senderAddress,
 		description,
-		items
+		items,
 	} = req.body;
+	let total = null;
+
+	items.forEach((item) => {
+		total = total + item.total;
+	});
 	Invoice.findByIdAndUpdate(
 		req.body._id,
 		{
@@ -111,7 +116,7 @@ router.put("/invoice/:invoiceId", (req, res) => {
 			clientName,
 			senderAddress,
 			description,
-			items
+			items,
 		},
 		{
 			new: true,
