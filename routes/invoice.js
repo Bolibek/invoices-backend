@@ -117,6 +117,7 @@ router.put("/invoice/:invoiceId", (req, res) => {
 			senderAddress,
 			description,
 			items,
+			total,
 		},
 		{
 			new: true,
