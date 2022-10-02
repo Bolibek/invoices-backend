@@ -98,6 +98,7 @@ router.put("/invoice/:invoiceId", (req, res) => {
 		clientName,
 		senderAddress,
 		description,
+		items
 	} = req.body;
 	Invoice.findByIdAndUpdate(
 		req.body._id,
@@ -110,6 +111,7 @@ router.put("/invoice/:invoiceId", (req, res) => {
 			clientName,
 			senderAddress,
 			description,
+			items
 		},
 		{
 			new: true,

@@ -26,6 +26,7 @@ const invoiceSchema = new Schema({
 			name: String,
 			qty: Number,
 			price: Number,
+			id: Number,
 			total: Number,
 		}
 	],
