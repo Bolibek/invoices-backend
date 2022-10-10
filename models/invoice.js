@@ -28,9 +28,14 @@ const invoiceSchema = new Schema({
 			price: Number,
 			id: Number,
 			total: Number,
-		}
+		},
 	],
 	total: Number,
+	// userId: String,
+	userId: {
+	  type: Schema.Types.ObjectId,
+	  ref: "User",
+	},
 });
 
 model("Invoice", invoiceSchema);
