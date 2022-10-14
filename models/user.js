@@ -3,28 +3,22 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema({
 	firstName: {
 		type: String,
+		required: true,
 	},
 	lastName: {
 		type: String,
+		required: true,
 	},
 	email: {
 		type: String,
+		required: true,
 	},
 	password: {
 		type: String,
+		required: true,
 	},
-	// token: String,
-	// invoices: [
-	// 	{
-	// 		type: Schema.Types.ObjectId,
-	// 		ref: "Invoice",
-	// 	},
-	// ],
-	// pic: {
-	//   type: String,
-	//   default:
-	//     "https://res.cloudinary.com/dtabxocmw/image/upload/v1635099407/78-785827_user-profile-avatar-login-account-male-user-icon_kmmxgw.jpg",
-	// },
+	backgroundImage: String,
+	profileImage: String,
 });
 
 model("User", userSchema);

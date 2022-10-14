@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "invoice-96ad3",
+    "Invoice-shelf": "invoice-96ad3",
+    "invoice": "invoice-96ad3"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -9,8 +9,6 @@ const { JWT_SECRET } = require("../config/key");
 router.post("/signupuser", async (req, res) => {
 	try {
 		const { firstName, lastName, email, password } = req.body;
-		console.log(password);
-
 		if (!email) {
 			return res
 				.status(400)
@@ -39,6 +37,8 @@ router.post("/signupuser", async (req, res) => {
 			password: hash,
 			firstName,
 			lastName,
+			backgroundImage: "",
+			profileImage: "",
 		});
 		await user.save();
 	} catch (error) {
