@@ -2,18 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const { initializeApp, applicationDefault } = require("firebase-admin/app");
 const bodyParser = require("body-parser");
 const PORT = 8080;
 const { MONGO_URI } = require("./config/key");
 
 require("./models/user");
 require("./models/invoice");
-
-initializeApp({
-	credential: applicationDefault(),
-	databaseURL: "https://invoice-96ad3.firebaseio.com",
-});
 
 const corsOptions = {
 	origin: "*",
@@ -32,6 +26,10 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/invoice"));
 app.use(require("./routes/user"));
 
-app.listen(PORT, () => {
-	console.log(`Server has been started on port ${PORT}`);
-});
+if (process.env.ENVIRONMENT === "production") {
+	exports.handler = serverless(app);
+} else {
+	app.listen(PORT, () => {
+		console.log(`Server has been started on port ${PORT}`);
+	});
+}
