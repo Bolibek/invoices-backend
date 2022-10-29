@@ -3,10 +3,8 @@ const router = Router();
 const mongoose = require("mongoose");
 const Invoice = mongoose.model("Invoice");
 const login = require("../middleware/login");
-const auth = require("../middleware/auth");
 
 router.get("/invoice", login, (req, res) => {
-	console.log(req.headers.authorization, req.user._id);
 	Invoice.find({userId: req.user._id})
 		.then((invoice) => {
 			res.json(invoice);
